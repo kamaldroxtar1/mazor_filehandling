@@ -1,10 +1,17 @@
 <?php
 if(isset($_POST['sub'])){
+    $oldpass=$_POST['oldpass'];
+    $fo=fopen("users/$uid/password.txt","r");
+          $pass=trim(fgets($fo));
+          $oldpass=substr(sha1($oldpass),0,10);
+          if ($oldpass==$pass){
+
+
     $newpass=$_POST['newpass'];
     $newpassword1 = substr(sha1($newpass), 0, 10);
     unlink("users/$uid/password.txt");
     file_put_contents("users/$uid/password.txt",$newpassword1);
-    header("location:psuccess.php");
+    header("location:psuccess.php");}
 }
 ?>
 
