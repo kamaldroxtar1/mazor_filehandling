@@ -1,5 +1,6 @@
 <?php
 include("captcha.php");
+error_reporting(0);
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -78,7 +79,7 @@ if (isset($_POST['register'])) {
                 <?php
                 if (!empty($error)) {
                 ?>
-                    <div class="alert alert-danger"> <?php echo $error; ?></div>
+                    <div class="alert alert-danger mt-5"> <?php echo $error; ?></div>
                 <?php
                 }
                 ?>
